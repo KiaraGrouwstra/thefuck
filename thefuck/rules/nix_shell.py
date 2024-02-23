@@ -41,7 +41,7 @@ def match(command):
 
 def get_new_command(command):
     args = ' '.join(command.script.split()[1:])
-    tail = if args then ' -- {}'.format(args) else ''
+    tail = ' -- {}'.format(args) if args else ''
     bin = command.script_parts[0]
     nixpkgs_names = get_nixpkgs_names(bin)
 
