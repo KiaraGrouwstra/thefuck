@@ -41,12 +41,13 @@ def match(command):
 
 def get_new_command(command):
     args = ' '.join(command.script.split()[1:])
+    tail = if args then ' -- {}'.format(args) else ''
     bin = command.script_parts[0]
     nixpkgs_names = get_nixpkgs_names(bin)
 
     # Construct a command for each package name
     commands = [
-        'nix run nixpkgs#{} -- {}'.format(name, args)
+        'nix run nixpkgs#{}'.format(name) + tail
         for name in nixpkgs_names
     ]
     return commands
