@@ -60,10 +60,10 @@ def get_new_command(command):
         nix_run = "nix run nixpkgs#{}"
 
     patterns = [
+        nix_shell,
         nix_run,
         nix_shell_vanilla,
         nix_shell_original,
-        # nix_shell, # nix_run is generally preferred over this
     ]
 
     commands = [pattern.format(name) for name in nixpkgs_names for pattern in patterns]
